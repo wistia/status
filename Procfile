@@ -1,2 +1,2 @@
-doc: bundle exec jekyll --auto --server
+doc: bundle exec jekyll serve --watch
 compass: compass watch
