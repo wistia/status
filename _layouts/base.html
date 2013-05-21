@@ -1,29 +1,50 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
-    <meta content='text/html;charset=utf-8' http-equiv='Content-Type' />
-    <meta content='Your Name' name='author' />
-    <link href='/stylesheets/app.scss' rel='stylesheet' type='text/css' />
-    <link href='/stylesheets/screen.css' rel='stylesheet' type='text/css' />
+    <meta content='text/html;charset=utf-8' http-equiv='Content-Type'>
+    <meta content='Your Name' name='author'>
+    <link href='/stylesheets/screen.css' rel='stylesheet' type='text/css'>
     <title>
       Wistia Status
     </title>
   </head>
   <body>
     {% include header.html %}
-    <div class='row'>
-      <div class='twelve columns' id='container'>
-        <div class='row'>
-          <div class='nine columns offset-by-one center-content' id='header'>
-            <h1>
-              Wistia Status!
-            </h1>
+    <div id='page-wrapper'>
+      <div class='main-title'>
+        <h1>
+          Wistia Status
+        </h1>
+      </div>
+      <div class='section'>
+        <div id='wistia-status'>
+          <div class='app-wrap'>
+            <ul>
+              <li class='down'>App</li>
+              <li>Stats</li>
+              <li>Uploads</li>
+            </ul>
           </div>
         </div>
-        <div class='row'>
-          <div class='nine columns offset-by-one center-content' id='section'>
-            {{ content }}
+      </div>
+      <div class='section'>
+        <div id='main-content'>
+          {% for post in site.posts %}
+          <div class='post'>
+            <div class='date'>
+              <span>{{ post.date | date_to_string }}</span>
+            </div>
+            <div class='post-content-wrapper'>
+              <div class='post-image'>
+                <img src='{{ post.header_image }}'>
+              </div>
+              <h1>{{ post.title }}</h1>
+              <div class='content'>
+                {{ post.content | markdownify }}
+              </div>
+            </div>
           </div>
+          {% endfor %}
         </div>
       </div>
     </div>

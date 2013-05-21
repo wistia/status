@@ -1,2 +1,159 @@
-// Your custom styles belong here
-// enjoy! --jeff
+
+// imports 
+
+@import compass/reset
+@import settings
+@import foundation
+@import compass/css3
+
+// vars
+
+$fonts: "Avenir", Helvetica, Arial, sans-serif
+
+// mixins
+
+=col
+  display: inline-block
+  *display: inline
+  vertical-align: top
+  zoom: 1 
+
+=breakpoint($point)
+  @if $point == large-screen
+    @media (max-width: 1201px)
+      @content
+  @else if $point == medium-screen
+    @media (max-width: 960px)
+      @content
+  @else if $point == small-screen
+    @media (max-width: 650px)
+      @content
+
+// fonts //
+
+@font-face
+  font-family: "Avenir"
+  src: url("/fonts/avenir/avenir-35.eot?#iefix")
+  src: url("/fonts/avenir/avenir-35.eot?#iefix") format("eot"),url("/fonts/avenir/avenir-35.woff") format("woff"),url("/fonts/avenir/avenir-35.ttf") format("truetype"),url("/fonts/avenir/avenir-35.svg#Avenir-35") format("svg")
+  font-weight: 200
+
+@font-face
+  font-family: "Avenir"
+  src: url("/fonts/avenir/avenir-35-oblique.eot?#iefix")
+  src: url("/fonts/avenir/avenir-35-oblique.eot?#iefix") format("eot"),url("/fonts/avenir/avenir-35-oblique.woff") format("woff"),url("/fonts/avenir/avenir-35-oblique.ttf") format("truetype"),url("/fonts/avenir/avenir-35-oblique.svg#avenir-35-oblique") format("svg")
+  font-style:  italic
+  font-weight:  200
+
+@font-face
+  font-family: "Avenir"
+  src: url("/fonts/avenir/avenir-45.eot?#iefix")
+  src: url("/fonts/avenir/avenir-45.eot?#iefix") format("eot"),url("/fonts/avenir/avenir-45.woff") format("woff"),url("/fonts/avenir/avenir-45.ttf") format("truetype"),url("/fonts/avenir/avenir-45.svg#avenir-45") format("svg")
+  font-weight:  400
+
+@font-face
+  font-family: "Avenir"
+  src: url("/fonts/avenir/avenir-65.eot?#iefix")
+  src: url("/fonts/avenir/avenir-65.eot?#iefix") format("eot"),url("/fonts/avenir/avenir-65.woff") format("woff"),url("/fonts/avenir/avenir-65.ttf") format("truetype"),url("/fonts/avenir/avenir-65.svg#avenir-65") format("svg")
+  font-weight:  500
+
+@font-face
+  font-family: "Avenir"
+  src: url("/fonts/avenir/avenir-85.eot?#iefix")
+  src: url("/fonts/avenir/avenir-85.eot?#iefix") format("eot"),url("/fonts/avenir/avenir-85.woff") format("woff"),url("/fonts/avenir/avenir-85.ttf") format("truetype"),url("/fonts/avenir/avenir-85.svg#avenir-85") format("svg")
+  font-weight:  700
+
+// specific styles
+
+body
+  font-family: $fonts
+
+#page-wrapper
+  padding: 30px
+  background-color: #eee
+  min-height: 800px
+
+%bulkhead
+  background-color: white
+  border: 1px solid #ccc
+  padding: 60px
+  position: relative
+  width: 80%
+  +breakpoint(medium-screen)
+    padding: 30px
+
+.main-title
+  margin-bottom: 30px
+  h1
+    text-align: center
+    font-size: 64px
+    -webkit-font-smoothing: antialiased
+    
+
+#wistia-status
+  @extend %bulkhead
+  font-size: 16px
+  margin: 0 auto
+  .app-wrap
+    text-align: center
+    margin: 0 auto
+    ul
+      padding: 0 2.5em
+    li
+      +col
+      font-weight: bold
+      font-size: 3.4em
+      color: #56be8e
+      padding: 0 0.75em
+      -webkit-font-smoothing: antialiased
+      &.down
+        color: red
+      +breakpoint(large-screen)
+        font-size: 3em
+      +breakpoint(medium-screen)
+        font-size: 1.8em
+      +breakpoint(small-screen)
+        display: block
+        text-align: left
+
+.section
+  margin: 0 auto
+  max-width: 1200px
+  padding: 15px 15px
+  position: relative
+
+.post
+  @extend %bulkhead
+  margin: 0 auto 30px
+
+  .date
+    background-color: #faa928
+    padding: 15px
+    margin: 15px
+    margin-left: 0
+    +col
+    span
+      color: white
+      font-weight: 600
+
+  h1  
+    color: #111
+
+.post-content-wrapper
+  position: relative
+  max-width: 670px
+  +col
+
+  .post-image
+    font-size: 0
+    margin: 0 auto
+    max-height: 250px
+    overflow: hidden
+    width: 100%
+
+  .content
+    p
+      font-size: 18px
+      line-height: 150%
+    a
+      color: #0e7ac4
+      text-decoration: underline

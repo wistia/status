@@ -3,20 +3,35 @@
   %head
     %meta{ 'http-equiv' => 'Content-Type', :content => "text/html;charset=utf-8" }
     %meta{ :name => "author", :content => "Your Name" }
-    %link{ rel: 'stylesheet', type: 'text/css', href: '/stylesheets/app.scss' }
     %link{ rel: 'stylesheet', type: 'text/css', href: '/stylesheets/screen.css' }
     %title
       Wistia Status
   %body
     {% include header.html %}
-    .row
-      #container.twelve.columns
-        .row
-          #header.nine.columns.offset-by-one.center-content
-            %h1
-              Wistia Status!
-        .row
-          #section.nine.columns.offset-by-one.center-content
-            {{ content }}
+
+    #page-wrapper
+      .main-title
+        %h1
+          Wistia Status
+      .section
+        #wistia-status
+          .app-wrap
+            %ul
+              %li.down App
+              %li Stats
+              %li Uploads
+      .section
+        #main-content
+          {% for post in site.posts %}
+          .post
+            .date 
+              %span {{ post.date | date_to_string }}
+            .post-content-wrapper
+              .post-image 
+                %img{ src: "{{ post.header_image }}" }
+              %h1 {{ post.title }}
+              .content
+                {{ post.content | markdownify }}
+          {% endfor %}
 
     {% include footer.html %}
