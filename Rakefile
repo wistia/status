@@ -39,6 +39,7 @@ end
 desc "Create a new blog post"
 task :np do
 
+  content = ENV["content"] || "new update"
   title = ENV["title"] || "new-post"
   slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
 
@@ -56,6 +57,7 @@ task :np do
       post.puts "description: "
       post.puts "category: "
       post.puts "---"
+      post.puts content
     end
   end
 
