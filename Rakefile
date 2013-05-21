@@ -54,8 +54,6 @@ task :np do
       post.puts "---"
       post.puts "layout: post"
       post.puts "title: \"#{ title.gsub(/-/, ' ')}\""
-      post.puts "description: "
-      post.puts "category: "
       post.puts "---"
       post.puts content
     end
