@@ -6,14 +6,17 @@
     %link{ rel: 'stylesheet', type: 'text/css', href: '/stylesheets/app.scss' }
     %link{ rel: 'stylesheet', type: 'text/css', href: '/stylesheets/screen.css' }
     %title
-      / this page needs a title!
+      Wistia Status
   %body
+    {% include header.html %}
     .row
       #container.twelve.columns
         .row
           #header.nine.columns.offset-by-one.center-content
             %h1
-              / insert main site title
+              Wistia Status!
         .row
           #section.nine.columns.offset-by-one.center-content
             {{ content }}
+
+    {% include footer.html %}
